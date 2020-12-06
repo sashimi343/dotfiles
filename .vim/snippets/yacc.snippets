@@ -1,0 +1,21 @@
+# union
+snippet union
+	%union
+	{
+		${1}
+	}
+# c code
+snippet %{
+	%{
+	${1}
+	%}
+# token
+snippet token
+	%token ${1:identifier}
+snippet tokenn
+	%token <${1:union_member}> ${2:identifier}
+# syntax definitions
+snippet %%
+	%%
+	${1:syntax}
+	%%

@@ -1,0 +1,11 @@
+# if tmux session exists, auto attach recent session
+#if [ -z "$TMUX" -a -z "$STY" ]; then
+#    if type tmux >/dev/null 2>&1; then
+#        if tmux has-session && tmux list-sessions | egrep -q '.*]$'; then
+#            # there exists tmux detached session
+#            tmux attach && echo "tmux attached session "
+#        else
+#            tmux new-session && echo "tmux created new session"
+#        fi
+#    fi
+#fi

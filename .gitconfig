@@ -1,0 +1,17 @@
+[user]
+	name = Kohei Kakimoto
+	email = naige.1028@gmail.com
+[color]
+	ui = true
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	co = checkout
+	st = status
+    stage = add
+    unstage = reset HEAD
+[merge]
+	ff = false
+[pull]
+	ff = only
+[commit]
+	template = ~/.gitmessage

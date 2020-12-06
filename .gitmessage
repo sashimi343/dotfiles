@@ -1,0 +1,25 @@
+
+
+# Examples)
+# - Fix typo in docs
+# - Fix location of favicon
+# - Fix for #4183
+# - Add .js to import
+# - Add test for bug #3116
+# - (Add|Remove (useless)|Fix) user's password check
+# - Remove duplication in render function
+# - Remove unused code from tests
+# - Remove use of deprecated method
+# - Remove methods to avoid warnings
+# - Use ++ instead of += 1
+# - Update Modernizr to v1.6
+# - Make it (possible|simple|easy|clear) to have IDs per request
+# - Make sure to reset default_url_options
+# - Don't use "assert_not_nil"
+# - Allow the user to drag faster
+# - Change copyright to 2013
+# - Set default kernel to Gaussian
+# - Convert time to string
+# Convenient representations)
+# - a possible null pointer dereference
+# - the stability issue
