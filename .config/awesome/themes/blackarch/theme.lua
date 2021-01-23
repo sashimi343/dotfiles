@@ -30,11 +30,11 @@ theme.border_marked = "#91231c"
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- Example:
---theme.taglist_bg_focus = "#ff0000"
+theme.taglist_bg_focus = "#316ab7"
 
 -- Display the taglist squares
-theme.taglist_squares_sel   = "~/.config/awesome/themes/blackarch/taglist/squarefw.png"
-theme.taglist_squares_unsel = "~/.config/awesome/themes/blackarch/taglist/squarew.png"
+--theme.taglist_squares_sel   = "~/.config/awesome/themes/blackarch/taglist/squarefw.png"
+--theme.taglist_squares_unsel = "~/.config/awesome/themes/blackarch/taglist/squarew.png"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
