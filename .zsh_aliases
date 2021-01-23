@@ -52,3 +52,6 @@ alias -g C='| cut'
 
 # Bundler
 alias be='bundle exec'
+
+# howdoi (StackOverflow CLI)
+alias how2='howdoi -a'

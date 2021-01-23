@@ -254,6 +254,9 @@ source ${HOME}/.zsh/git-flow-completion/git-flow-completion.zsh
 # rbenv
 which rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 
+# z
+[ -f "/usr/share/z/z.sh" ] && . "/usr/share/z/z.sh"
+
 # local settings
 # you MUST load .zsh_local at the end of this script
 [ -f "$HOME/.zsh_local" ] && . "$HOME/.zsh_local"
