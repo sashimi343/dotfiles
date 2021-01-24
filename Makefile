@@ -110,7 +110,10 @@ javascript:
 python:
 	sudo pacman -S python python-colorama python-pip
 
-install: ssh base dotfiles blackarch yay common-packages gui pentest docker vagrant ruby javascript python
+dotnet:
+	sudo yay -S dotnet-sdk icu55
+
+install: ssh base dotfiles blackarch yay common-packages gui pentest docker vagrant ruby javascript python dotnet
 
 backup:
 	pacman -Qe >packages.txt
