@@ -235,11 +235,11 @@ route () {
 
 # English <-> Japanese dictionary
 function ejdict() {
-    grep "$*" /usr/share/dict/dict -E -A 1 -wi --color=always | less -R -FX
+    grep "$*" /usr/share/dict/gene -E -A 1 -wi --color=always | less -R -FX
 }
 
 function jedict() {
-    grep "$*" /usr/share/dict/dict -E -B 1 -wi --color=always | less -R -FX
+    grep "$*" /usr/share/dict/gene -E -B 1 -wi --color=always | less -R -FX
 }
 
 # Command line tools for Google Translation

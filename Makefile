@@ -60,6 +60,9 @@ common-packages:
 	wget words wpa_supplicant xarchiver xsel zip zsh
 	yay -S heroku-cli jdk keepassx2 nkf preload trash-cli ttf-ms-fonts ttf-ricty
 	chsh -s /usr/bin/zsh
+	sudo cp ${PWD}/dicts/gene /usr/share/dict/
+	wget git.io/trans -P ${HOME}/bin/
+	chmod +x ${HOME}/bin/trans
 
 gui:
 	sudo pacman -S awesome blackarch-config-awesome lxappearance lxdm \
