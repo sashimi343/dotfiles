@@ -243,7 +243,7 @@ function jedict() {
 }
 
 # Command line tools for Google Translation
-source ${HOME}/.zsh/translate-shell/translate-shell.plugin.zsh
+#source ${HOME}/.zsh/translate-shell/translate-shell.plugin.zsh
 
 # Enable C-s shortcut key
 stty stop undef
