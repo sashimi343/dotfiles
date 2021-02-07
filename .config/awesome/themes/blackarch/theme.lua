@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "Terminus (TTF) 10"
+theme.font          = "Terminus (TTF) 11"
 
 theme.bg_normal     = "#181818"
 theme.bg_focus      = "#000000"
@@ -40,7 +40,7 @@ theme.taglist_bg_focus = "#316ab7"
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = "~/.config/awesome/themes/blackarch/submenu.png"
-theme.menu_height = 15
+theme.menu_height = 18
 theme.menu_width  = 100
 
 -- You can add as many variables as
