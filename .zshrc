@@ -33,20 +33,20 @@ colors
 
 if [ ${UID} -eq 0 ] ; then
     PROMPT="
-%{${fg[magenta]}%}%n@%m: %{${fg[green]}%}%~%{${reset_color}%}
+%F{160}%n@%m: %F{240}%~%f
 %# "
 elif [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] ; then
     PROMPT="
-%{${fg[yellow]}%}%n@${HOST%%.*}: %{${fg[green]}%}%~%{${reset_color}%}
+%F{220}%n@${HOST%%.*}: %F{240}%~%f
 %# "
 else
     PROMPT="
-%{${fg[cyan]}%}%n@%m: %{${fg[green]}%}%~%{${reset_color}%}
+%F{039}%n@%m: %F{240}%~%f
 %# "
 fi
 
 #RPROMPT="%{${fg[yellow]}%}[%W %T]%{${reset_color}%}"
-PROMPT2="%_%%"
+PROMPT2="%F{240}%_%%%f"
 SPROMPT="zsh: correct '%R' -> '%r'? [n/y/a/e]: "
 
 # less highlight
@@ -118,7 +118,7 @@ vcs_info_wrapper() {
         ac=`echo "${vcs_info_msg_0_}" | sed -e "s/^\S\+ \S\+ \(\w\+\)$/\1/"`
         [ ${ac} != ${vcs_info_msg_0_} ] && re="${re} ${ac}"
 
-        branch="%{$reset_color%}[%{${fg[green]}%}${br}%{$reset_color%}@%{${fg[cyan]}%}${re}%{$reset_color%}]"
+        branch="%f[%F{039}${br}%f@%F{020}${re}%f]"
         if [[ -n `git status 2>/dev/null | grep "^Untracked"` ]]; then
             # untracked
             echo "%{${fg[magenta]}%}(untracked) ${branch}%{$reset_color%}"
