@@ -72,7 +72,7 @@ theme.titlebar_maximized_button_focus_inactive  = "~/.config/awesome/themes/blac
 theme.titlebar_maximized_button_normal_active = "~/.config/awesome/themes/blackarch/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "~/.config/awesome/themes/blackarch/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/.config/awesome/themes/blackarch/arch_wallpaper.png"
+theme.wallpaper = "~/.config/awesome/themes/blackarch/lamy_bg.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "~/.config/awesome/themes/blackarch/layouts/fairhw.png"

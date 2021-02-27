@@ -118,7 +118,7 @@ vcs_info_wrapper() {
         ac=`echo "${vcs_info_msg_0_}" | sed -e "s/^\S\+ \S\+ \(\w\+\)$/\1/"`
         [ ${ac} != ${vcs_info_msg_0_} ] && re="${re} ${ac}"
 
-        branch="%f[%F{039}${br}%f@%F{020}${re}%f]"
+        branch="%f[%F{039}${br}%f@%F{039}${re}%f]"
         if [[ -n `git status 2>/dev/null | grep "^Untracked"` ]]; then
             # untracked
             echo "%{${fg[magenta]}%}(untracked) ${branch}%{$reset_color%}"
