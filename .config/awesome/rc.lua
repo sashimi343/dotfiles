@@ -356,6 +356,7 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
     awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
     awful.key({}, "XF86AudioMute",        function() volumecfg:toggle() end),
+    awful.key({}, "XF86AudioMicMute",     function () awful.util.spawn("amixer set Capture toggle") end),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
