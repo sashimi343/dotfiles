@@ -15,6 +15,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 require("awful.hotkeys_popup.keys")
 -- load the volume control widget
 local volume_control = require("volume-control")
+local cpu_widget = require("cpu-widget.cpu-widget")
+local ram_widget = require("ram-widget.ram-widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -228,6 +230,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- deficient/battery-widget
+            cpu_widget(),
+            ram_widget(),
             require("battery-widget") {},
             volumecfg.widget,
             mykeyboardlayout,
