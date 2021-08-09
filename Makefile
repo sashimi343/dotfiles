@@ -55,10 +55,10 @@ common-packages:
 	gparted graphviz gvim hexedit htop inetutils iw jfsutils \
 	jq less libfprint lvm2 lynx nano netctl ntfs-3g ntp \
 	otf-ipafont pavucontrol pciutils procps-ng pulseaudio pulseaudio-alsa \
-	sakura sl slock sysfsutils sysstat tar termite thunderbird \
+	sakura sl slock sysfsutils sysstat tar thunderbird \
 	thunderbird-i18n-ja tlp tmux unzip usbutils util-linux vlc \
 	wget words wpa_supplicant xarchiver xsel zip zsh
-	yay -S heroku-cli jdk keepassx2 nkf preload trash-cli ttf-ms-fonts ttf-ricty
+	yay -S heroku-cli keepassx2 nkf preload trash-cli ttf-ms-fonts ttf-ricty
 	chsh -s /usr/bin/zsh
 	sudo cp ${PWD}/dicts/gene /usr/share/dict/
 	wget git.io/trans -P ${HOME}/bin/
@@ -112,9 +112,11 @@ javascript:
 
 python:
 	sudo pacman -S python python-colorama python-pip
+	# required by deoplete.nvim
+	pip3 install --user pynvim
 
 dotnet:
-	sudo yay -S dotnet-sdk icu55
+	yay -S dotnet-sdk icu55
 
 install: ssh base dotfiles blackarch yay common-packages gui pentest docker vagrant ruby javascript python dotnet
 

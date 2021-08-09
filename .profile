@@ -22,7 +22,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-#/usr/bin/dropbox start -i &
+[ -f "/usr/bin/dropbox" ] && /usr/bin/dropbox start -i &
 #HOME=$HOME/.myDropbox /usr/bin/dropbox start -i
 
 # CapsLock -> Ctrl
@@ -32,7 +32,7 @@ which setxkbmap && setxkbmap -option ctrl:nocaps
 #syndaemon -i 0.5 -t &
 
 # enable composition effect
-which compton && compton -CGb
+which picom && picom -b -i 0.85
 
 # enable natural scrolling 
 if xinput list-props "SynPS/2 Synaptics TouchPad" | grep -q "libinput Natural Scrolling Enabled"; then

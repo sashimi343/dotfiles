@@ -63,6 +63,9 @@ nnoremap s, <C-w><
 inoremap <silent> jj <ESC>
 inoremap <silent> kk <ESC>
 
+" force write
+"cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
+
 " yanktmp.vim
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
@@ -300,7 +303,14 @@ NeoBundle 'Shougo/vimshell.vim'
 "autocmd BufRead *.* AlterCommand vsh VimShellPop
 
 " Completion ===================================================================
-if has('lua')
+if (has('python3') || has('nvim'))
+    NeoBundle 'Shougo/deoplete.nvim'
+    if !has('nvim')
+        NeoBundle 'roxma/nvim-yarp'
+        NeoBundle 'roxma/vim-hug-neovim-rpc'
+    endif
+    let g:deoplete#enable_at_startup = 1
+elseif has('lua')
     NeoBundleLazy 'Shougo/neocomplete.vim', {
                 \ 'depends' : 'Shougo/vimproc',
                 \ 'autoload' : { 'insert' : 1,}

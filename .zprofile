@@ -28,11 +28,6 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
     # enable composition effect
     which compton && compton -CGb
 
-    # enable natural scrolling 
-    if xinput list-props "SynPS/2 Synaptics TouchPad" | grep -q "libinput Natural Scrolling Enabled"; then
-        "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-    fi
-
     # start xscreensaver
     which xscreensaver && xscreensaver -no-splash &
 fi
