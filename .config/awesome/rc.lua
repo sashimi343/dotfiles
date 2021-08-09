@@ -17,7 +17,12 @@ require("awful.hotkeys_popup.keys")
 local volume_control = require("volume-control")
 local cpu_widget = require("cpu-widget.cpu-widget")
 local ram_widget = require("ram-widget.ram-widget")
+local calendar_widget = require("calendar-widget.calendar")
+local fs_widget = require("fs-widget.fs-widget")
+local logout_menu_widget = require("logout-menu-widget.logout-menu")
+local xdg_menu = require("archmenu")
 
+local fs_widget = require("fs-widget.fs-widget")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -50,8 +55,8 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/blackarch/theme.lua
 
 -- This is used later as the default terminal and editor to run.
 --terminal = "xterm"
-terminal = "sakura"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "xfce4-terminal"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -59,7 +64,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+modkey = "Mod3"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -103,16 +108,19 @@ end
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-   { "hotkeys", function() return false, hotkeys_popup.show_help end},
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end}
+   { "Hotkeys", function() return false, hotkeys_popup.show_help end},
+   { "Manual", terminal .. " -e man awesome" },
+   { "Edit config", editor_cmd .. " " .. awesome.conffile },
+   { "Restart", awesome.restart },
+   { "Quit", function() awesome.quit() end}
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal },
-                                    { "lock screen", "xscreensaver-command -lock"}
+mymainmenu = awful.menu({ items = { { "Awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Applications", xdgmenu },
+                                    { "Open terminal", terminal },
+                                    { "Lock screen", "xscreensaver-command -lock"}
+                                    --{ "Reboot", "reboot"},
+                                    --{ "Poweroff", "poweroff"}
                                   }
                         })
 
@@ -129,6 +137,17 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+-- for calendar widget start
+local cw = calendar_widget({
+    theme = 'nord',
+    placement = 'top_right',
+    radius = 8
+})
+mytextclock:connect_signal("button::press",
+    function(_,_,_,button)
+            if button == 1 then cw.toggle() end
+    end)
+-- for calendar widget end
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -232,10 +251,14 @@ awful.screen.connect_for_each_screen(function(s)
             -- deficient/battery-widget
             cpu_widget(),
             ram_widget(),
-            require("battery-widget") {},
-            volumecfg.widget,
+            fs_widget({ mounts = {'/', '/home'}}),
+            --volumecfg.widget,
             mykeyboardlayout,
             wibox.widget.systray(),
+            --logout_menu_widget({
+            --    onlock = function() awful.spawn.with_shell('xscreensaver-command --lock') end,
+            --    onsuspend = function() awful.spawn.with_shell('xscreensaver-command --lock') end
+            --}),
             mytextclock,
             s.mylayoutbox,
         },
@@ -361,8 +384,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     -- Run Chromium browser
-    awful.key({ modkey }, "b", function () awful.util.spawn("chromium") end,
-              {description = "run Chromium browser" ,group = "launcher"})
+    awful.key({ modkey }, "b", function () awful.util.spawn("google-chrome-stable") end,
+              {description = "run Google Chrome browser" ,group = "launcher"}),
+    -- Open file manager
+    awful.key({ modkey }, "t", function () awful.util.spawn("thunar") end,
+              {description = "Open Thunar file manager" ,group = "launcher"})
               )
 
 clientkeys = gears.table.join(

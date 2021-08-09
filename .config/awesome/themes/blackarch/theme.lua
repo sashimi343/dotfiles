@@ -33,15 +33,15 @@ theme.border_marked = "#91231c"
 theme.taglist_bg_focus = "#316ab7"
 
 -- Display the taglist squares
---theme.taglist_squares_sel   = "~/.config/awesome/themes/blackarch/taglist/squarefw.png"
---theme.taglist_squares_unsel = "~/.config/awesome/themes/blackarch/taglist/squarew.png"
+theme.taglist_squares_sel   = "~/.config/awesome/themes/blackarch/taglist/squarefw.png"
+theme.taglist_squares_unsel = "~/.config/awesome/themes/blackarch/taglist/squarew.png"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = "~/.config/awesome/themes/blackarch/submenu.png"
 theme.menu_height = 18
-theme.menu_width  = 100
+theme.menu_width  = 150
 
 -- You can add as many variables as
 -- you wish and access them by using
